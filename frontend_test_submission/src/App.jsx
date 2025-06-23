@@ -1,10 +1,17 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ShortenerPage from './pages/shortnerPages';
+import StatisticsPage from './pages/staticPages';
+import RedirectPage from './pages/RedirectPage';
 
-import './App.css'
+const App = () => (
+  <Router>
+    <Routes>
+      <Route path="/" element={<ShortenerPage />} />
+      <Route path="/stats" element={<StatisticsPage />} />
+      <Route path=":shortcode" element={<RedirectPage />} />
+    </Routes>
+  </Router>
+);
 
-export default function App() {
-  return (
-    <h1 className="text-3xl font-bold underline text-red-700">
-      Hello world!
-    </h1>
-  )
-}
+export default App;
